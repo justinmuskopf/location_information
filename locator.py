@@ -10,8 +10,8 @@ class Locator():
             self.key = key
         else:
             try:
-                with json.load(open(self.KEY_FILE)) as jsonObject:
-                    self.key = self.KEY_FILE['key']
+                with open(self.KEY_FILE) as keyFile:
+                    self.key = keyFile.read().strip()
             except IOError:
                 print("LOCATOR: Cannot find key file '{}'".format(self.KEY_FILE))
 
